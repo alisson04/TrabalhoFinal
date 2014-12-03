@@ -5,9 +5,15 @@
  */
 package br.edu.ifnmg.trabalho.apresentacao;
 
+import br.edu.ifnmg.trabalho.dados.RelatorioDAO;
 import br.edu.ifnmg.trabalho.dados.UsuarioDAO;
 import br.edu.ifnmg.trabalho.entidade.Usuario;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -62,6 +68,7 @@ public class GerenteForm extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         itmRelatorioAtividade = new javax.swing.JMenu();
         itemRelatorioAtividade = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setExtendedState(6);
@@ -235,6 +242,16 @@ public class GerenteForm extends javax.swing.JFrame {
         });
         itmRelatorioAtividade.add(itemRelatorioAtividade);
 
+        jMenuItem3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/relatorio.png"))); // NOI18N
+        jMenuItem3.setText("Relatorio Projeto");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        itmRelatorioAtividade.add(jMenuItem3);
+
         jMenuBar1.add(itmRelatorioAtividade);
 
         setJMenuBar(jMenuBar1);
@@ -314,8 +331,29 @@ public class GerenteForm extends javax.swing.JFrame {
     }//GEN-LAST:event_itemRelatorioAtividadeActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+        ListaAtividadeForm atividadeForm = new ListaAtividadeForm(usuario);
+        pnlPrincipal.add(atividadeForm);
+        atividadeForm.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        try{
+            String relatorio = System.getProperty("user.dir") + "/Relatorios/relatorioProjeto.jasper";
+            
+            //Criar a fonte de dados do JasperReport
+            JRBeanCollectionDataSource fontedados = new JRBeanCollectionDataSource(new RelatorioDAO().listaRelatorioPorDepartamento(this.usuario.getDepartamento().getId()));
+            
+            //Gerar o relatorio
+            JasperPrint relatorioGerado = JasperFillManager.fillReport(relatorio, null, fontedados);
+            
+            //Exibir Relatorio
+            JasperViewer jasperViewer = new JasperViewer(relatorioGerado,false);
+            jasperViewer.setVisible(true);
+            
+        }catch(JRException ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem itemRelatorioAtividade;
@@ -335,6 +373,7 @@ public class GerenteForm extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JLabel lblDepartamento;
     private javax.swing.JLabel lblTipo;
     private javax.swing.JLabel lblUsuario;

@@ -142,6 +142,7 @@ public class EncarregadoForm extends javax.swing.JFrame {
         jMenu2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
         itmHorasTrabalhada.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        itmHorasTrabalhada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/dados.png"))); // NOI18N
         itmHorasTrabalhada.setText("Horas Trabalhada");
         itmHorasTrabalhada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

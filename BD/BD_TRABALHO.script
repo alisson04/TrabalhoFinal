@@ -60,4 +60,4 @@ INSERT INTO USUARIO VALUES(1,'Anna Karolyne Matos de Souza','karol@yahoo.com','n
 INSERT INTO USUARIO VALUES(2,'Jessica Matos de Souza','jessica@gmail.com','null-3616-92-34121-94252332109112-10-1311-90-85','GERENTE',0)
 INSERT INTO USUARIO VALUES(3,'Ruth Matos de Souza','ruth@hotmail.com','null-46761010454-73110-109-100116471088959-3984','ENCARREGADO',2)
 INSERT INTO PROJETO VALUES(0,'Porcentagem de Filhos po Funcionario','Quantos filhos cada funcionario possui','2014-12-02','2015-02-02',2)
-INSERT INTO ATIVIDADE VALUES(0,'asd',0,3,12.0E0,1239.0E0,50.0E0)
+INSERT INTO ATIVIDADE VALUES(0,'asd',0,3,12.0E0,1241.0E0,100.0E0)

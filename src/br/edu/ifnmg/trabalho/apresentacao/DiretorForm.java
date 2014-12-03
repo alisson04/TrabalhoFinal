@@ -53,6 +53,10 @@ public class DiretorForm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         lblDepartamento = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        itmDados = new javax.swing.JMenuItem();
+        itmLogoff = new javax.swing.JMenuItem();
+        itmSair = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         itmCadDepartamento = new javax.swing.JMenuItem();
         itmGerente = new javax.swing.JMenuItem();
@@ -63,10 +67,6 @@ public class DiretorForm extends javax.swing.JFrame {
         itmListaEncarregado = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        itmDados = new javax.swing.JMenuItem();
-        itmLogoff = new javax.swing.JMenuItem();
-        itmSair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Diretor");
@@ -122,6 +122,45 @@ public class DiretorForm extends javax.swing.JFrame {
 
         jMenuBar1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jMenuBar1.setPreferredSize(new java.awt.Dimension(208, 30));
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/opcao.png"))); // NOI18N
+        jMenu1.setText("Opção");
+        jMenu1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+
+        itmDados.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        itmDados.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        itmDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/dadosPessoais.png"))); // NOI18N
+        itmDados.setText("Dados Pessoais");
+        itmDados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmDadosActionPerformed(evt);
+            }
+        });
+        jMenu1.add(itmDados);
+
+        itmLogoff.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_MASK));
+        itmLogoff.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        itmLogoff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/logoff.png"))); // NOI18N
+        itmLogoff.setText("Logoff");
+        itmLogoff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmLogoffActionPerformed(evt);
+            }
+        });
+        jMenu1.add(itmLogoff);
+
+        itmSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
+        itmSair.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        itmSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/jamembo-error.png"))); // NOI18N
+        itmSair.setText("Sair");
+        itmSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmSairActionPerformed(evt);
+            }
+        });
+        jMenu1.add(itmSair);
+
+        jMenuBar1.add(jMenu1);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/cadastro.png"))); // NOI18N
         jMenu2.setText("Cadastro");
@@ -218,45 +257,6 @@ public class DiretorForm extends javax.swing.JFrame {
         jMenu4.add(jMenuItem2);
 
         jMenuBar1.add(jMenu4);
-
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/opcao.png"))); // NOI18N
-        jMenu1.setText("Opção");
-        jMenu1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-
-        itmDados.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        itmDados.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        itmDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/dadosPessoais.png"))); // NOI18N
-        itmDados.setText("Dados Pessoais");
-        itmDados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmDadosActionPerformed(evt);
-            }
-        });
-        jMenu1.add(itmDados);
-
-        itmLogoff.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_MASK));
-        itmLogoff.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        itmLogoff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/logoff.png"))); // NOI18N
-        itmLogoff.setText("Logoff");
-        itmLogoff.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmLogoffActionPerformed(evt);
-            }
-        });
-        jMenu1.add(itmLogoff);
-
-        itmSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
-        itmSair.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        itmSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/jamembo-error.png"))); // NOI18N
-        itmSair.setText("Sair");
-        itmSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmSairActionPerformed(evt);
-            }
-        });
-        jMenu1.add(itmSair);
-
-        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
