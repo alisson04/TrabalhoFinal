@@ -55,6 +55,7 @@ public class RelatorioAtivdadeProjetoForm extends javax.swing.JInternalFrame {
         jLabel1.setText("Projeto:");
 
         btnGerar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        btnGerar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/confirmação.png"))); // NOI18N
         btnGerar.setText("Gerar Relatorio");
         btnGerar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

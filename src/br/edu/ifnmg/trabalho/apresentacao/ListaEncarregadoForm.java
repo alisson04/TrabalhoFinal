@@ -148,6 +148,7 @@ public class ListaEncarregadoForm extends javax.swing.JInternalFrame {
         cmbDepartamento.setEnabled(false);
 
         btnEditar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/editar.png"))); // NOI18N
         btnEditar.setText("Editar");
         btnEditar.setEnabled(false);
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -157,6 +158,7 @@ public class ListaEncarregadoForm extends javax.swing.JInternalFrame {
         });
 
         btnDemitir.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        btnDemitir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/excluir.png"))); // NOI18N
         btnDemitir.setText("Demitir");
         btnDemitir.setEnabled(false);
         btnDemitir.addActionListener(new java.awt.event.ActionListener() {

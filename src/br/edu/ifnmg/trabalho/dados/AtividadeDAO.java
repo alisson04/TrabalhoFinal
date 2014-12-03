@@ -58,39 +58,46 @@ public class AtividadeDAO {
         }
         return lista;
     }
-    
-    public List<Atividade> listaAtividadeAtrasada(int encarregado) {
+
+    public List<Atividade> listaAtividadeAtrasada(int departamento) {
         Connection conexao = null;
         PreparedStatement comando = null;
         ResultSet resultado = null;
         List<Atividade> lista = new ArrayList<>();
         try {
             conexao = BDUtil.getConnection();
-            comando = conexao.prepareStatement("SELECT * FROM ATIVIDADE WHERE ENCARREGADO=?");
-            comando.setInt(1, encarregado);
+            comando = conexao.prepareStatement("SELECT * FROM USUARIO WHERE CARGO=? AND DEPARTAMENTO=?");
+            comando.setString(1, "ENCARREGADO");
+            comando.setInt(2, departamento);
             resultado = comando.executeQuery();
-            while (resultado.next()) {
-                double duracaoPrevista = resultado.getDouble("DURACAOPREVISTA");
-                double duracaoTotal = resultado.getDouble("TOTALHORAS");
-                double percentual = resultado.getDouble("PERCENTUAL_CONCLUSAO");
-                if (duracaoPrevista <= duracaoTotal && percentual < 100) {
-                    Atividade atividade = new Atividade();
-                    atividade.setId(resultado.getInt("ID"));
-                    atividade.setNome(resultado.getString("NOME"));
-                    for (Projeto projeto : new ProjetoDAO().listaProjetoAll()) {
-                        if (projeto.getId() == resultado.getInt("PROJETO")) {
-                            atividade.setProjeto(projeto);
+            if (resultado.next()) {
+                int encarregado = resultado.getInt("ID");
+                comando = conexao.prepareStatement("SELECT * FROM ATIVIDADE WHERE ENCARREGADO=?");
+                comando.setInt(1, encarregado);
+                resultado = comando.executeQuery();
+                while (resultado.next()) {
+                    double duracaoPrevista = resultado.getDouble("DURACAOPREVISTA");
+                    double duracaoTotal = resultado.getDouble("TOTALHORAS");
+                    double percentual = resultado.getDouble("PERCENTUAL_CONCLUSAO");
+                    if (duracaoPrevista <= duracaoTotal && percentual < 100) {
+                        Atividade atividade = new Atividade();
+                        atividade.setId(resultado.getInt("ID"));
+                        atividade.setNome(resultado.getString("NOME"));
+                        for (Projeto projeto : new ProjetoDAO().listaProjetoAll()) {
+                            if (projeto.getId() == resultado.getInt("PROJETO")) {
+                                atividade.setProjeto(projeto);
+                            }
                         }
-                    }
-                    for (Usuario usuario : new UsuarioDAO().listaEncarregado()) {
-                        if (usuario.getId() == resultado.getInt("ENCARREGADO")) {
-                            atividade.setEncarregado(usuario);
+                        for (Usuario usuario : new UsuarioDAO().listaEncarregado()) {
+                            if (usuario.getId() == resultado.getInt("ENCARREGADO")) {
+                                atividade.setEncarregado(usuario);
+                            }
                         }
+                        atividade.setDuracaoPrevista(duracaoPrevista);
+                        atividade.setTotalHoras(duracaoTotal);
+                        atividade.setPercentual_conclusao(percentual);
+                        lista.add(atividade);
                     }
-                    atividade.setDuracaoPrevista(duracaoPrevista);
-                    atividade.setTotalHoras(duracaoTotal);
-                    atividade.setPercentual_conclusao(percentual);
-                    lista.add(atividade);
                 }
             }
         } catch (Exception e) {

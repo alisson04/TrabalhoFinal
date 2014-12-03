@@ -41,8 +41,6 @@ public class ListaGerenteForm extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblGerente = new javax.swing.JTable();
-        txtBusca = new javax.swing.JTextField();
-        btnBusca = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -82,33 +80,20 @@ public class ListaGerenteForm extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tblGerente);
 
-        txtBusca.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-
-        btnBusca.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        btnBusca.setText("Buscar");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtBusca)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -141,6 +126,7 @@ public class ListaGerenteForm extends javax.swing.JInternalFrame {
         cmbDepartamento.setEnabled(false);
 
         btnEditar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/editar.png"))); // NOI18N
         btnEditar.setText("Editar");
         btnEditar.setEnabled(false);
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -150,6 +136,7 @@ public class ListaGerenteForm extends javax.swing.JInternalFrame {
         });
 
         btnDemitir.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        btnDemitir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/excluir.png"))); // NOI18N
         btnDemitir.setText("Demitir");
         btnDemitir.setEnabled(false);
         btnDemitir.addActionListener(new java.awt.event.ActionListener() {
@@ -297,7 +284,6 @@ public class ListaGerenteForm extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBusca;
     private javax.swing.JButton btnDemitir;
     private javax.swing.JButton btnEditar;
     private javax.swing.JComboBox cmbDepartamento;
@@ -310,7 +296,6 @@ public class ListaGerenteForm extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblGerente;
-    private javax.swing.JTextField txtBusca;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNome;

@@ -24,8 +24,11 @@ public class GerenteForm extends javax.swing.JFrame {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         this.usuario = usuarioDAO.info(usuario);
         lblUsuario.setText(this.usuario.getNome());
-        lblTipo.setText(usuario.getCargo());
+        lblTipo.setText("Cargo:" + usuario.getCargo());
         lblDepartamento.setText(usuario.getDepartamento().getNome());
+        AtrasoForm atrasoForm = new AtrasoForm(this.usuario);
+        pnlPrincipal.add(atrasoForm);
+        atrasoForm.setVisible(true);
     }
 
     /**
@@ -63,24 +66,24 @@ public class GerenteForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setExtendedState(6);
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel1.setText("Usuario:");
 
-        lblUsuario.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblUsuario.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
 
-        lblTipo.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblTipo.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel2.setText("Departamento:");
 
-        lblDepartamento.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lblDepartamento.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
 
         javax.swing.GroupLayout pnlInformacaoLayout = new javax.swing.GroupLayout(pnlInformacao);
         pnlInformacao.setLayout(pnlInformacaoLayout);
         pnlInformacaoLayout.setHorizontalGroup(
             pnlInformacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlInformacaoLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -89,11 +92,11 @@ public class GerenteForm extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         pnlInformacaoLayout.setVerticalGroup(
             pnlInformacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(lblUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(lblTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -108,11 +111,17 @@ public class GerenteForm extends javax.swing.JFrame {
         );
         pnlPrincipalLayout.setVerticalGroup(
             pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 476, Short.MAX_VALUE)
+            .addGap(0, 466, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Opção");
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(210, 30));
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/opcao.png"))); // NOI18N
+        jMenu1.setText("Opção");
+        jMenu1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+
+        itmDadosPessoais.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        itmDadosPessoais.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/dadosPessoais.png"))); // NOI18N
         itmDadosPessoais.setText("Dados Pessoais");
         itmDadosPessoais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +130,8 @@ public class GerenteForm extends javax.swing.JFrame {
         });
         jMenu1.add(itmDadosPessoais);
 
+        itmLogoff.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        itmLogoff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/logoff.png"))); // NOI18N
         itmLogoff.setText("Logoff");
         itmLogoff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,6 +141,8 @@ public class GerenteForm extends javax.swing.JFrame {
         jMenu1.add(itmLogoff);
 
         itmSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
+        itmSair.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        itmSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/jamembo-error.png"))); // NOI18N
         itmSair.setText("Sair");
         itmSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,8 +153,12 @@ public class GerenteForm extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/cadastro.png"))); // NOI18N
         jMenu2.setText("Cadastro");
+        jMenu2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
+        itmCadEncarregado.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        itmCadEncarregado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/gerente.png"))); // NOI18N
         itmCadEncarregado.setText("Encarregado");
         itmCadEncarregado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +167,7 @@ public class GerenteForm extends javax.swing.JFrame {
         });
         jMenu2.add(itmCadEncarregado);
 
+        itmCadProjeto.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         itmCadProjeto.setText("Projeto");
         itmCadProjeto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,6 +176,7 @@ public class GerenteForm extends javax.swing.JFrame {
         });
         jMenu2.add(itmCadProjeto);
 
+        itmCadAtividade.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         itmCadAtividade.setText("Atividade");
         itmCadAtividade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,8 +187,12 @@ public class GerenteForm extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/dados.png"))); // NOI18N
         jMenu3.setText("Dados");
+        jMenu3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
+        itmListEncarregado.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        itmListEncarregado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/gerente.png"))); // NOI18N
         itmListEncarregado.setText("Encarregado");
         itmListEncarregado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,6 +201,7 @@ public class GerenteForm extends javax.swing.JFrame {
         });
         jMenu3.add(itmListEncarregado);
 
+        jMenuItem1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jMenuItem1.setText("Projetos");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,13 +210,23 @@ public class GerenteForm extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem1);
 
+        jMenuItem2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jMenuItem2.setText("Atividades");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem2);
 
         jMenuBar1.add(jMenu3);
 
+        itmRelatorioAtividade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/relatorio.png"))); // NOI18N
         itmRelatorioAtividade.setText("Relatorio");
+        itmRelatorioAtividade.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
+        itemRelatorioAtividade.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        itemRelatorioAtividade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/relatorio.png"))); // NOI18N
         itemRelatorioAtividade.setText(" Atividades de projeto");
         itemRelatorioAtividade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,6 +312,10 @@ public class GerenteForm extends javax.swing.JFrame {
         pnlPrincipal.add(ativdadeProjetoForm);
         ativdadeProjetoForm.setVisible(true);
     }//GEN-LAST:event_itemRelatorioAtividadeActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem itemRelatorioAtividade;

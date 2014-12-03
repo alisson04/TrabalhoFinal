@@ -84,6 +84,7 @@ public class DadosPessoaisForm extends javax.swing.JInternalFrame {
         txtEmail.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
 
         btnEditar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/editar.png"))); // NOI18N
         btnEditar.setText("Editar");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

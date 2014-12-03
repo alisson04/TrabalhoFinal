@@ -68,6 +68,7 @@ public class CadastroEncarregadoForm extends javax.swing.JInternalFrame {
         txtEmail.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         btnCadastrar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/trabalho/icon/confirmação.png"))); // NOI18N
         btnCadastrar.setText("Cadastrar");
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

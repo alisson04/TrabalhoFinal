@@ -105,7 +105,7 @@ public class AtrasoForm extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     private void ConfigurarTblAtraso() {
-        TableAtrasoModel model = new TableAtrasoModel(new AtividadeDAO().listaAtividadeAtrasada(usuario.getId()));
+        TableAtrasoModel model = new TableAtrasoModel(new AtividadeDAO().listaAtividadeAtrasada(usuario.getDepartamento().getId()));
         tblAtraso.setModel(model);
     }
 
